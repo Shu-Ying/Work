@@ -33,13 +33,14 @@ void Widget::UiInit()
 
 void Widget::OpenXML()
 {
-    QFile file("./res/party.xml");
+    QFile file("../2022-12-14_Work/res/party.xml");
     if(file.open(QIODevice::ReadOnly))
     {
         QDomDocument dom("Diuse");
         if (dom.setContent(&file))
         {
             QDomElement docElem = dom.documentElement();
+            Manager m(docElem);
         }
     }
     file.close();

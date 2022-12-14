@@ -16,10 +16,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    branch.cpp \
+    center.cpp \
     main.cpp \
+    manager.cpp \
+    staff.cpp \
     widget.cpp
 
 HEADERS += \
+    branch.h \
+    center.h \
+    manager.h \
+    staff.h \
     widget.h
 
 FORMS += \
@@ -30,5 +38,4 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES += \
-    res.qrc
+RESOURCES +=

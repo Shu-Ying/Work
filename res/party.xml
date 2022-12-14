@@ -1,18 +1,33 @@
 <party>
     <item>
-        <name>总经理</name>
-        <leader id="1">宋江</leader>
+        <name type="boss">总经理</name>
+        <leader type="boss-leader">宋江</leader>
+        <id type="id">1</id>
 
         <item>
-            <name>生产研发中心</name>
-            <leader id="2">卢俊义</leader>
-            <staff id="">李四</staff>
+            <name type="center">生产研发中心</name>
+            <leader type="center-leader">卢俊义</leader>
+            <id type="id">2</id>
+            <item>
+                <name type="branch">生产部</name>
+                <leader type="branch-leader">赵六</leader>
+                <id type="id">3</id>
+                <staff id="4">张三</staff>
+                <staff id="5">李四</staff>
+            </item>
         </item>
 
         <item>
-            <name>市场营销中心</name>
-            <leader id="3">吴用</leader>
-            <staff id="">张三</staff>
+            <name type="center">159发中心</name>
+            <leader type="center-leader">卢俊义</leader>
+            <id type="id">2</id>
+            <item>
+                <name type="branch">生产部</name>
+                <leader type="branch-leader">赵六</leader>
+                <id type="id">3</id>
+                <staff id="4">张三</staff>
+                <staff id="5">李四</staff>
+            </item>
         </item>
 
     </item>

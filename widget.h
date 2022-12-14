@@ -7,10 +7,13 @@
 #include <QDomDocument>
 #include <QDomElement>
 
+#include "manager.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
 
+//class Manager;
 class Widget : public QWidget
 {
     Q_OBJECT
