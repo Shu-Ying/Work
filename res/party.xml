@@ -9,6 +9,13 @@
             <leader type="center-leader">卢俊义</leader>
             <id type="id">2</id>
             <item>
+                <name type="branch">研发部</name>
+                <leader type="branch-leader">赵六</leader>
+                <id type="id">3</id>
+                <staff id="4">张三</staff>
+                <staff id="5">李四</staff>
+            </item>
+            <item>
                 <name type="branch">生产部</name>
                 <leader type="branch-leader">赵六</leader>
                 <id type="id">3</id>
@@ -22,7 +29,41 @@
             <leader type="center-leader">卢俊义</leader>
             <id type="id">2</id>
             <item>
-                <name type="branch">生产部</name>
+                <name type="branch">宣传部</name>
+                <leader type="branch-leader">赵六</leader>
+                <id type="id">3</id>
+                <staff id="4">张三</staff>
+                <staff id="5">李四</staff>
+            </item>
+            <item>
+                <name type="branch">123部</name>
+                <leader type="branch-leader">赵六</leader>
+                <id type="id">3</id>
+                <staff id="4">张三</staff>
+                <staff id="5">李四</staff>
+            </item>
+            <item>
+                <name type="branch">1225553部</name>
+                <leader type="branch-leader">赵六</leader>
+                <id type="id">3</id>
+                <staff id="4">张三</staff>
+                <staff id="5">李四</staff>
+            </item>
+        </item>
+
+        <item>
+            <name type="center">159发中心</name>
+            <leader type="center-leader">卢俊义</leader>
+            <id type="id">2</id>
+            <item>
+                <name type="branch">9/部</name>
+                <leader type="branch-leader">赵六</leader>
+                <id type="id">3</id>
+                <staff id="4">张三</staff>
+                <staff id="5">李四</staff>
+            </item>
+            <item>
+                <name type="branch">1563部</name>
                 <leader type="branch-leader">赵六</leader>
                 <id type="id">3</id>
                 <staff id="4">张三</staff>

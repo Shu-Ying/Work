@@ -51,9 +51,9 @@ QString Manager::getName(int num)
     return subordinate[num].getName();
 }
 
-QString Manager::getCenterName(int num)
+QString Manager::getCenterName(int i,int num)
 {
-    return subordinate[num].getName(num);
+    return subordinate[i].getName(num);
 }
 
 QString Manager::getLeader()
@@ -66,7 +66,9 @@ int Manager::getLength()
     return subordinate.length();
 }
 
-int Manager::getCenterLength()
+int Manager::getCenterLength(int num)
 {
-    return subordinate[0].getLength();
+    if(num>=subordinate.length()) return 0;
+    qDebug()<<subordinate[num].getLength();
+    return subordinate[num].getLength();
 }

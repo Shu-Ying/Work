@@ -82,7 +82,7 @@ void Widget::ShowManagerItem(QTreeWidgetItem *pItem)
         item->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled|Qt:: ItemIsSelectable);
         item->setText(0, m->getName(i));
 
-        ShowCenterItem(item);
+        ShowCenterItem(i,item);
 
         if(pItem)
         {
@@ -96,10 +96,10 @@ void Widget::ShowManagerItem(QTreeWidgetItem *pItem)
     }
 }
 
-void Widget::ShowCenterItem(QTreeWidgetItem *pItem)
+void Widget::ShowCenterItem(int i,QTreeWidgetItem *pItem)
 {
-    int i=0;
-    while (i<m->getCenterLength())
+    int num = 0;
+    while (num < m->getCenterLength(i))
     {
         QTreeWidgetItem *item;
         if(pItem)
@@ -111,7 +111,7 @@ void Widget::ShowCenterItem(QTreeWidgetItem *pItem)
         }
 
         item->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled|Qt:: ItemIsSelectable);
-        item->setText(0, m->getCenterName(i));
+        item->setText(0, m->getCenterName(i,num));
 
         if(pItem)
         {
@@ -120,7 +120,6 @@ void Widget::ShowCenterItem(QTreeWidgetItem *pItem)
         {
             ui->treeWidget->addTopLevelItem(item);
         }
-
-        i++;
+        num++;
     }
 }

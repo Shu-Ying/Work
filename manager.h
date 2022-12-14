@@ -21,10 +21,10 @@ public:
     QString getLeader();
     QString getName();
     QString getName(int num);
-    QString getCenterName(int num);
+    QString getCenterName(int i,int num);
 
     int getLength();
-    int getCenterLength();
+    int getCenterLength(int num);
 private:
     QString m_name;
     QString m_id;

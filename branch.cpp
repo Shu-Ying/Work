@@ -1,5 +1,7 @@
 #include "branch.h"
 
+#include <QDebug>
+
 Branch::Branch()
 {
 

@@ -25,6 +25,8 @@ public:
     Manager *m;
 private:
     QTreeWidgetItem *treeItem; //主Item
+
+    int centerNum = 0;
 private:
     Ui::Widget *ui;
 
@@ -43,8 +45,6 @@ private:
      * @param pItem
      */
     void ShowManagerItem(QTreeWidgetItem *pItem);
-    void ShowCenterItem(QTreeWidgetItem *pItem);
-    void ShowBranchItem(QTreeWidgetItem *pItem);
-
+    void ShowCenterItem(int i,QTreeWidgetItem *pItem);
 };
 #endif // WIDGET_H

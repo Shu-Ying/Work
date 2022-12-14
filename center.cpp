@@ -32,11 +32,11 @@ void Center::parseXML(QDomElement &xml)
 
         docElem = docElem.nextSibling();
     }
-}
 
-void Center::get(Center ce)
-{
-    qDebug()<<ce.m_id<<ce.m_name<<ce.m_leader;
+//    foreach(Branch be,subordinate)
+//    {
+//        qDebug()<<be.getName();
+//    }
 }
 
 QString Center::getID()
