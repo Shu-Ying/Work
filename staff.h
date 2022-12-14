@@ -10,7 +10,7 @@ class Staff
 public:
     Staff();
 
-    QMap<QString,QString>staff;
+    QMap<QString,QString>subordinate;
 };
 
 #endif // STAFF_H

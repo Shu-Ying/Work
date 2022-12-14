@@ -278,8 +278,7 @@ Makefile: 2022-12-14_Work.pro C:/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/win32-g++
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Xml.prl \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl \
-		C:/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/build_pass.prf \
-		res.qrc
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile 2022-12-14_Work.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 C:/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/spec_pre.prf:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/qdevice.pri:
@@ -490,7 +489,6 @@ C:/Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Xml.prl:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/build_pass.prf:
-res.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile 2022-12-14_Work.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 

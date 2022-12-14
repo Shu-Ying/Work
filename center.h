@@ -10,15 +10,27 @@
 class Center
 {
 public:
-    Center(QDomElement &xml);
+    Center();
 
-    void get(Center ce);
+    /**
+     * @brief parseXML 解析XML
+     * @param xml 解析的值
+     */
+    void parseXML(QDomElement &xml);
+
+    QString getID();
+    QString getLeader();
+    QString getName();
+    QString getName(int num);
+
+    int getLength();
+    int getBranchLength();
 private:
     QString m_name;
     QString m_id;
     QString m_leader;
 
-    QList<Branch>branch;
+    QList<Branch>subordinate;
 };
 
 #endif // CENTER_H

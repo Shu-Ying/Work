@@ -22,6 +22,9 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
+    Manager *m;
+private:
+    QTreeWidgetItem *treeItem; //主Item
 private:
     Ui::Widget *ui;
 
@@ -34,6 +37,14 @@ private:
      * @brief OpenXML 打开XML
      */
     void OpenXML();
+
+    /**
+     * @brief ShowItem 递归显示
+     * @param pItem
+     */
+    void ShowManagerItem(QTreeWidgetItem *pItem);
+    void ShowCenterItem(QTreeWidgetItem *pItem);
+    void ShowBranchItem(QTreeWidgetItem *pItem);
 
 };
 #endif // WIDGET_H

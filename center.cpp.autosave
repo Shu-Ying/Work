@@ -34,11 +34,6 @@ void Center::parseXML(QDomElement &xml)
     }
 }
 
-void Center::get(Center ce)
-{
-    qDebug()<<ce.m_id<<ce.m_name<<ce.m_leader;
-}
-
 QString Center::getID()
 {
     return m_id;

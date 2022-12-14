@@ -9,22 +9,30 @@
 class Manager
 {
 public:
-    Manager(QDomElement &xml);
+    Manager();
 
+    /**
+     * @brief parseXML 解析XML
+     * @param xml 解析的值
+     */
+    void parseXML(QDomElement &xml);
+
+    QString getID();
+    QString getLeader();
+    QString getName();
+    QString getName(int num);
+    QString getCenterName(int num);
+
+    int getLength();
+    int getCenterLength();
 private:
     QString m_name;
     QString m_id;
     QString m_leader;
 
-    QList<Center>center;
+    QList<Center>subordinate;
 
 private:
-    /**
-     * @brief parseXML 解析XML
-     * @param docElem 传入打开的文件
-     */
-    void parseXML(QDomElement &docElem);
-
     int sureFor(QDomElement docElem);
 };
 

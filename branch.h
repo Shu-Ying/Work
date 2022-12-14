@@ -10,15 +10,21 @@
 class Branch
 {
 public:
-    Branch(QDomElement &xml);
+    Branch();
 
-    void get(Branch be);
+    /**
+     * @brief parseXML 解析XML
+     * @param xml 解析的值
+     */
+    void parseXML(QDomElement &xml);
+
+    QString getName();
 private:
     QString m_name;
     QString m_id;
     QString m_leader;
 
-    Staff staff;
+    Staff subordinate;
 };
 
 #endif // BRANCH_H

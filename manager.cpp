@@ -2,61 +2,71 @@
 
 #include <QDebug>
 
-Manager::Manager(QDomElement &xml)
-{
-    QDomNode docElem = xml.firstChild();
-    QDomNode node = docElem.firstChild();
-
-    int length = sureFor(xml);
-
-    for(int i=0;i<length;i++)
-    {
-        QDomElement element = node.toElement();
-
-        if(element.toElement().attribute("type")=="boss") this->m_name = element.toElement().text();
-
-        if(element.toElement().attribute("type")=="boss-leader") this->m_leader = element.toElement().text();
-
-        if(element.toElement().attribute("type")=="id") this->m_id = element.toElement().text();
-
-        if(element.toElement().tagName() == "item")
-        {
-            Center c(element);
-            center.push_back(c);
-        }
-
-        node = node.nextSibling();
-    }
-
-        for(int i=0;i<center.size();i++)
-        {
-            center[i].get(center[i]);
-        }
-}
-
-void Manager::parseXML(QDomElement &docElem)
+Manager::Manager()
 {
 
 }
 
 /**
- * @brief Manager::sureFor 循环几次
- * @param xml   遍历文件
- * @return  返回循环几次
+ * @brief Manager::parseXML 解析XML
+ * @param xml
  */
-int Manager::sureFor(QDomElement xml)
+void Manager::parseXML(QDomElement &xml)
 {
     QDomNode docElem = xml.firstChild();
     QDomNode node = docElem.firstChild();
 
-    int num = 0;
-
     while(!node.isNull())
     {
-        num++;
+        QDomElement element = node.toElement();
+
+        //固定三种类型
+        if(element.toElement().attribute("type")=="boss") this->m_name = element.toElement().text();
+        if(element.toElement().attribute("type")=="boss-leader") this->m_leader = element.toElement().text();
+        if(element.toElement().attribute("type")=="id") this->m_id = element.toElement().text();
+
+        if(element.toElement().tagName() == "item")
+        {
+            Center c;
+            c.parseXML(element);
+            subordinate.push_back(c);
+        }
+
         node = node.nextSibling();
     }
-
-    return num;
 }
 
+QString Manager::getID()
+{
+    return m_id;
+}
+
+QString Manager::getName()
+{
+    return m_name;
+}
+
+QString Manager::getName(int num)
+{
+    return subordinate[num].getName();
+}
+
+QString Manager::getCenterName(int num)
+{
+    return subordinate[num].getName(num);
+}
+
+QString Manager::getLeader()
+{
+    return m_leader;
+}
+
+int Manager::getLength()
+{
+    return subordinate.length();
+}
+
+int Manager::getCenterLength()
+{
+    return subordinate[0].getLength();
+}
