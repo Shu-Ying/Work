@@ -1,0 +1,19 @@
+<party>
+    <item>
+        <name>总经理</name>
+        <leader id="1">宋江</leader>
+
+        <item>
+            <name>生产研发中心</name>
+            <leader id="2">卢俊义</leader>
+            <staff id="">李四</staff>
+        </item>
+
+        <item>
+            <name>市场营销中心</name>
+            <leader id="3">吴用</leader>
+            <staff id="">张三</staff>
+        </item>
+
+    </item>
+</party>

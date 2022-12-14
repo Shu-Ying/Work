@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/party.xml</file>
+    </qresource>
+</RCC>
