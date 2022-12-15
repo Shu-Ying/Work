@@ -44,9 +44,19 @@ QString Center::getID()
     return m_id;
 }
 
+void Center::setID(QString id)
+{
+    this->m_id = id;
+}
+
 QString Center::getLeader()
 {
     return m_leader;
+}
+
+void Center::setLeader(QString leader)
+{
+    this->m_leader = leader;
 }
 
 QString Center::getName()
@@ -57,6 +67,11 @@ QString Center::getName()
 QString Center::getName(int num)
 {
     return subordinate[num].getName();
+}
+
+void Center::setName(QString name)
+{
+    this->m_name = name;
 }
 
 int Center::getLength()

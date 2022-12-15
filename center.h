@@ -1,7 +1,6 @@
 #ifndef CENTER_H
 #define CENTER_H
 
-#include <QString>
 #include <QList>
 #include <QDomElement>
 
@@ -19,9 +18,19 @@ public:
     void parseXML(QDomElement &xml);
 
     QString getID();
+    void setID(QString id);
+
     QString getLeader();
+    void setLeader(QString leader);
+
     QString getName();
+    /**
+     * @brief getName 获取name
+     * @param num   表示哪个值的name
+     * @return
+     */
     QString getName(int num);
+    void setName(QString name);
 
     int getLength();
     int getBranchLength();

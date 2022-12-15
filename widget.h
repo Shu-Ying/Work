@@ -41,10 +41,16 @@ private:
     void OpenXML();
 
     /**
-     * @brief ShowItem 递归显示
+     * @brief ShowManagerItem 显示总经理的Item
      * @param pItem
      */
     void ShowManagerItem(QTreeWidgetItem *pItem);
+
+    /**
+     * @brief ShowCenterItem 显示中心的Item
+     * @param i 用于区分当前为哪个中心下的
+     * @param pItem
+     */
     void ShowCenterItem(int i,QTreeWidgetItem *pItem);
 };
 #endif // WIDGET_H

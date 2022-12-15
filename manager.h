@@ -1,7 +1,6 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 
-#include <QString>
 #include <QList>
 #include <QDomDocument>
 
@@ -18,9 +17,15 @@ public:
     void parseXML(QDomElement &xml);
 
     QString getID();
+    void setID(QString id);
+
     QString getLeader();
+    void setLeader(QString leader);
+
     QString getName();
     QString getName(int num);
+    void setName(QString name);
+
     QString getCenterName(int i,int num);
 
     int getLength();

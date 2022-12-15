@@ -41,6 +41,11 @@ QString Manager::getID()
     return m_id;
 }
 
+void Manager::setID(QString id)
+{
+    this->m_id = id;
+}
+
 QString Manager::getName()
 {
     return m_name;
@@ -51,6 +56,11 @@ QString Manager::getName(int num)
     return subordinate[num].getName();
 }
 
+void Manager::setName(QString name)
+{
+    this->m_name = name;
+}
+
 QString Manager::getCenterName(int i,int num)
 {
     return subordinate[i].getName(num);
@@ -59,6 +69,11 @@ QString Manager::getCenterName(int i,int num)
 QString Manager::getLeader()
 {
     return m_leader;
+}
+
+void Manager::setLeader(QString leader)
+{
+    this->m_leader = leader;
 }
 
 int Manager::getLength()

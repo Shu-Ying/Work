@@ -7,13 +7,13 @@ Branch::Branch()
 
 }
 
+
 /**
- * @brief parseXML 解析XML
- * @param xml 解析的值
+ * @brief Branch::parseXML 解析XML
+ * @param xml
  */
 void Branch::parseXML(QDomElement &xml)
 {
-    Staff staff;
     QDomNode docElem = xml.firstChild();
     while(!docElem.isNull())
     {
@@ -27,7 +27,7 @@ void Branch::parseXML(QDomElement &xml)
         //存储员工信息
         if(element.toElement().tagName() == "staff")
         {
-            staff.subordinate.insert(element.attribute("id"),element.text());
+            subordinate.subordinate.insert(element.attribute("id"),element.text());
         }
 
         docElem = docElem.nextSibling();
@@ -37,4 +37,24 @@ void Branch::parseXML(QDomElement &xml)
 QString Branch::getName()
 {
     return m_name;
+}
+
+void Branch::setName(QString name)
+{
+    this->m_name = name;
+}
+
+void Branch::setID(QString id)
+{
+    this->m_id = id;
+}
+
+void Branch::setLeader(QString leader)
+{
+    this->m_leader = leader;
+}
+
+void Branch::setStaff(QString id, QString name)
+{
+    subordinate.subordinate.insert(id,name);
 }

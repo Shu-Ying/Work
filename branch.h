@@ -1,7 +1,6 @@
 #ifndef BRANCH_H
 #define BRANCH_H
 
-#include <QString>
 #include <QList>
 #include <QDomElement>
 
@@ -19,6 +18,17 @@ public:
     void parseXML(QDomElement &xml);
 
     QString getName();
+
+    void setName(QString name);
+    void setID(QString id);
+    void setLeader(QString leader);
+
+    /**
+     * @brief setStaff 设置员工信息
+     * @param id ID
+     * @param name 姓名
+     */
+    void setStaff(QString id,QString name);
 private:
     QString m_name;
     QString m_id;
