@@ -1,7 +1,5 @@
 #include "center.h"
 
-#include <QDebug>
-
 Center::Center()
 {
 
@@ -32,16 +30,39 @@ void Center::parseXML(QDomElement &xml)
 
         docElem = docElem.nextSibling();
     }
-
-//    foreach(Branch be,subordinate)
-//    {
-//        qDebug()<<be.getName();
-//    }
 }
 
+/**
+ * @brief getID 获取中心ID
+ * @return
+ */
 QString Center::getID()
 {
     return m_id;
+}
+
+/**
+ * @brief getID 获取部门ID
+ * @param num   哪个中心下的部门
+ * @return
+ */
+QString Center::getID(int num)
+{
+    return subordinate[num].getID();
+}
+
+/**
+ * @brief getStaffMaxID 获取当前部门下员工最大ID
+ * @return
+ */
+QString Center::getStaffMaxID()
+{
+    QString id = "0";
+
+    foreach(Branch br,subordinate)
+        if(br.getStaffMaxID().toInt()>id.toInt()) id=br.getStaffMaxID();
+
+    return id;
 }
 
 void Center::setID(QString id)
@@ -64,6 +85,11 @@ QString Center::getName()
     return m_name;
 }
 
+/**
+ * @brief getName 获取name
+ * @param num   表示哪个部门的name
+ * @return
+ */
 QString Center::getName(int num)
 {
     return subordinate[num].getName();

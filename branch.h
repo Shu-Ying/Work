@@ -18,11 +18,15 @@ public:
     void parseXML(QDomElement &xml);
 
     QString getName();
-
     void setName(QString name);
+
+    QString getID();
     void setID(QString id);
+
+    QString getLeader();
     void setLeader(QString leader);
 
+    QString getStaffMaxID();
     /**
      * @brief setStaff 设置员工信息
      * @param id ID

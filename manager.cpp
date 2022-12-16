@@ -1,7 +1,5 @@
 #include "manager.h"
 
-#include <QDebug>
-
 Manager::Manager()
 {
 
@@ -84,6 +82,23 @@ int Manager::getLength()
 int Manager::getCenterLength(int num)
 {
     if(num>=subordinate.length()) return 0;
-    qDebug()<<subordinate[num].getLength();
     return subordinate[num].getLength();
+}
+
+int Manager::getMaxID()
+{
+    int id = 1;
+
+    foreach(Center ce,subordinate)
+    {
+        int i = 0;
+
+        if(ce.getID().toInt()>id) id = ce.getID().toInt();
+        if(ce.getID(i).toInt()>id) id = ce.getID(i).toInt();
+        if(ce.getStaffMaxID().toInt()>id) id = ce.getStaffMaxID().toInt();
+
+        i++;
+    }
+
+    return id;
 }

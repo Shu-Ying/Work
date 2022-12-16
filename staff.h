@@ -11,6 +11,8 @@ public:
     Staff();
 
     QMap<QString,QString>subordinate;
+
+    QString getMaxID();
 };
 
 #endif // STAFF_H

@@ -1,7 +1,5 @@
 #include "branch.h"
 
-#include <QDebug>
-
 Branch::Branch()
 {
 
@@ -44,14 +42,29 @@ void Branch::setName(QString name)
     this->m_name = name;
 }
 
+QString Branch::getID()
+{
+    return m_id;
+}
+
 void Branch::setID(QString id)
 {
     this->m_id = id;
 }
 
+QString Branch::getLeader()
+{
+    return m_leader;
+}
+
 void Branch::setLeader(QString leader)
 {
     this->m_leader = leader;
+}
+
+QString Branch::getStaffMaxID()
+{
+    return subordinate.getMaxID();
 }
 
 void Branch::setStaff(QString id, QString name)

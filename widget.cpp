@@ -59,6 +59,8 @@ void Widget::OpenXML()
     treeItem = new QTreeWidgetItem(ui->treeWidget);
     treeItem->setText(0,m->getName());
     ShowManagerItem(treeItem);
+
+    qDebug()<<m->getMaxID();
 }
 
 /**

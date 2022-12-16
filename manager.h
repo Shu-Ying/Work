@@ -30,6 +30,8 @@ public:
 
     int getLength();
     int getCenterLength(int num);
+
+    int getMaxID();
 private:
     QString m_name;
     QString m_id;
