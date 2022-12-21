@@ -5,6 +5,10 @@ Branch::Branch()
 
 }
 
+Branch::Branch(QString higherOffice)
+{
+    m_higherOffice=higherOffice;
+}
 
 /**
  * @brief Branch::parseXML 解析XML
@@ -25,7 +29,13 @@ void Branch::parseXML(QDomElement &xml)
         //存储员工信息
         if(element.toElement().tagName() == "staff")
         {
-            subordinate.subordinate.insert(element.attribute("id"),element.text());
+            Staff s;
+            s.setID(element.attribute("id"));
+            s.setName(element.toElement().text());
+            s.setDepartment(m_name);
+            s.setHigherOffice(m_higherOffice);
+
+            staff.push_back(s);
         }
 
         docElem = docElem.nextSibling();
@@ -64,10 +74,48 @@ void Branch::setLeader(QString leader)
 
 QString Branch::getStaffMaxID()
 {
-    return subordinate.getMaxID();
+    QString id = "0";
+
+    foreach(Staff st,staff)
+        if(st.getID().toInt()>id.toInt()) id=st.getID();
+
+    return id;
 }
 
 void Branch::setStaff(QString id, QString name)
 {
-    subordinate.subordinate.insert(id,name);
+    Staff s;
+    s.setID(id);
+    s.setName(name);
+    s.setDepartment(m_name);
+    s.setHigherOffice(m_higherOffice);
+
+    staff.push_back(s);
+}
+
+QList<QStringList> Branch::getStaffInfo()
+{
+    QList<QStringList> list;
+    QStringList info;
+
+    if(staff.length())
+    {
+        info<<m_id<<m_leader<<staff[0].getHigherOffice()<<m_leader;
+    } else
+    {
+        info<<m_id<<m_leader<<""<<m_leader;
+    }
+
+    list.push_back(info);
+
+    for(Staff st:staff)
+    {
+        info.clear();
+        info<<st.getID()<<st.getName()<<st.getHigherOffice()<<m_leader;
+
+        list.push_back(info);
+    }
+
+
+    return list;
 }

@@ -10,6 +10,7 @@ class Center
 {
 public:
     Center();
+    Center(QString higherOffice);
 
     /**
      * @brief parseXML 解析XML
@@ -31,7 +32,7 @@ public:
     QString getID(int num);
 
     /**
-     * @brief getStaffMaxID 获取最大员工ID
+     * @brief getStaffMaxID 获取当前部门下员工最大ID
      * @return
      */
     QString getStaffMaxID();
@@ -53,12 +54,24 @@ public:
 
     int getLength();
     int getBranchLength();
+
+    /**
+     * @brief containsBranch 检索是否包含该部门
+     * @param name 检索的部门名
+     * @return
+     */
+    bool containsBranch(QString name);
+
+    QList<QStringList> getStaffInfo();
+    QList<QStringList> getStaffInfo(QString name);
 private:
     QString m_name;
     QString m_id;
     QString m_leader;
+    QString m_higherOffice;
 
     QList<Branch>subordinate;
+    QList<Staff>staff;
 };
 
 #endif // CENTER_H

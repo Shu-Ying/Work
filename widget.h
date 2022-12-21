@@ -6,6 +6,7 @@
 #include <QTreeWidgetItem>
 #include <QDomDocument>
 #include <QDomElement>
+#include <QTableWidgetItem>
 
 #include "manager.h"
 
@@ -22,9 +23,13 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
-    Manager *m;
+private Q_SLOTS:
+    void treeWidgetItemClick(QTreeWidgetItem *item, int column);
+
 private:
     QTreeWidgetItem *treeItem; //主Item
+
+    Manager *m;
 
     int centerNum = 0;
 private:

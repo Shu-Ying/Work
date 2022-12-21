@@ -18,14 +18,14 @@ void Manager::parseXML(QDomElement &xml)
     {
         QDomElement element = node.toElement();
 
-        //固定三种类型
-        if(element.toElement().attribute("type")=="boss") this->m_name = element.toElement().text();
-        if(element.toElement().attribute("type")=="boss-leader") this->m_leader = element.toElement().text();
-        if(element.toElement().attribute("type")=="id") this->m_id = element.toElement().text();
+        //固定类型
+        if(element.toElement().attribute("type")=="boss") m_name = element.toElement().text();
+        if(element.toElement().attribute("type")=="boss-leader") m_leader = element.toElement().text();
+        if(element.toElement().attribute("type")=="id") m_id = element.toElement().text();
 
         if(element.toElement().tagName() == "item")
         {
-            Center c;
+            Center c(m_name);
             c.parseXML(element);
             subordinate.push_back(c);
         }
@@ -91,14 +91,26 @@ int Manager::getMaxID()
 
     foreach(Center ce,subordinate)
     {
-        int i = 0;
-
         if(ce.getID().toInt()>id) id = ce.getID().toInt();
-        if(ce.getID(i).toInt()>id) id = ce.getID(i).toInt();
+        if(ce.getID(0).toInt()>id) id = ce.getID(0).toInt(); ///<这里逻辑错误了 但是能实现
         if(ce.getStaffMaxID().toInt()>id) id = ce.getStaffMaxID().toInt();
-
-        i++;
     }
 
     return id;
+}
+
+QList<QStringList> Manager::getStaffInfo(QString name)
+{
+    QList<QStringList>list;
+
+    foreach(Center ce,subordinate)
+    {
+        if(ce.getName() == name)
+            return ce.getStaffInfo();
+
+        if(ce.containsBranch(name))
+            return ce.getStaffInfo(name);
+    }
+
+    return list;
 }

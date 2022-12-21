@@ -12,6 +12,8 @@ Widget::Widget(QWidget *parent)
     UiInit(); //初始化UI
 
     OpenXML(); //打开XML
+
+    connect(ui->treeWidget,&QTreeWidget::itemClicked,this,&Widget::treeWidgetItemClick);
 }
 
 Widget::~Widget()
@@ -20,11 +22,42 @@ Widget::~Widget()
     delete ui;
 }
 
+void Widget::treeWidgetItemClick(QTreeWidgetItem *item, int column)
+{
+    UiInit();
+
+    if(item->text(column)=="总经理")
+    {
+        ui->tableWidget->setItem(0,0,new QTableWidgetItem(m->getID()));
+        ui->tableWidget->setItem(0,1,new QTableWidgetItem(m->getLeader()));
+        ui->tableWidget->setItem(0,3,new QTableWidgetItem(m->getLeader()));
+
+        return ;
+    }
+
+    int columns=0,row=0;
+    QList<QStringList> staffList;
+
+    staffList = m->getStaffInfo(item->text(column));
+
+    for(QStringList list : staffList)
+    {
+        for(QString str : list)
+        {
+            ui->tableWidget->setItem(columns,row,new QTableWidgetItem(str));
+            row++;
+        }
+        columns++;
+        row=0;
+    }
+}
+
 /**
  * @brief Widget::UiInit 初始化UI
  */
 void Widget::UiInit()
 {
+    ui->tableWidget->clear();
     ui->treeWidget->setHeaderLabel("名称"); //treeWidget表头
 
     QStringList header;

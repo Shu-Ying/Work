@@ -8,10 +8,14 @@
             <name type="center">生产研发中心</name>
             <leader type="center-leader">卢俊义</leader>
             <id type="id">2</id>
+
+            <staff id="4">张三</staff>
+            <staff id="5">李四</staff>
+
             <item>
                 <name type="branch">研发部</name>
                 <leader type="branch-leader">赵六</leader>
-                <id type="id">3</id>
+                <id type="id">100</id>
                 <staff id="4">张三</staff>
                 <staff id="5">李四</staff>
             </item>
@@ -28,6 +32,10 @@
             <name type="center">159发中心</name>
             <leader type="center-leader">卢俊义</leader>
             <id type="id">2</id>
+            <staff id="4">张三</staff>
+            <staff id="6">李四</staff>
+            <staff id="8">李四</staff>
+
             <item>
                 <name type="branch">宣传部</name>
                 <leader type="branch-leader">赵六</leader>
@@ -39,7 +47,7 @@
                 <name type="branch">123部</name>
                 <leader type="branch-leader">赵六</leader>
                 <id type="id">3</id>
-                <staff id="4">张三</staff>
+                <staff id="4">张五</staff>
                 <staff id="5">李四</staff>
             </item>
             <item>
@@ -47,12 +55,12 @@
                 <leader type="branch-leader">赵六</leader>
                 <id type="id">3</id>
                 <staff id="4">张三</staff>
-                <staff id="5">李四</staff>
+                <staff id="9">李四</staff>
             </item>
         </item>
 
         <item>
-            <name type="center">159发中心</name>
+            <name type="center">16发中心</name>
             <leader type="center-leader">卢俊义</leader>
             <id type="id">2</id>
             <item>

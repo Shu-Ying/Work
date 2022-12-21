@@ -5,6 +5,11 @@ Center::Center()
 
 }
 
+Center::Center(QString higherOffice)
+{
+    m_higherOffice = higherOffice;
+}
+
 /**
  * @brief Center::parseXML 解析XML
  * @param xml
@@ -17,13 +22,24 @@ void Center::parseXML(QDomElement &xml)
         QDomElement element = docElem.toElement();
 
         //三种固定值
-        if(element.toElement().attribute("type")=="center") this->m_name = element.toElement().text();
-        if(element.toElement().attribute("type")=="center-leader") this->m_leader = element.toElement().text();
-        if(element.toElement().attribute("type")=="id") this->m_id = element.toElement().text();
+        if(element.toElement().attribute("type")=="center") m_name = element.toElement().text();
+        if(element.toElement().attribute("type")=="center-leader") m_leader = element.toElement().text();
+        if(element.toElement().attribute("type")=="id") m_id = element.toElement().text();
+
+        if(element.toElement().tagName() == "staff")
+        {
+            Staff s;
+            s.setID(element.attribute("id"));
+            s.setName(element.toElement().text());
+            s.setDepartment(m_name);
+            s.setHigherOffice(m_higherOffice);
+
+            staff.push_back(s);
+        }
 
         if(element.toElement().tagName() == "item")
         {
-            Branch b;
+            Branch b(m_name);
             b.parseXML(element);
             subordinate.push_back(b);
         }
@@ -103,4 +119,51 @@ void Center::setName(QString name)
 int Center::getLength()
 {
     return subordinate.length();
+}
+
+bool Center::containsBranch(QString name)
+{
+    for(Branch br:subordinate)
+        if(br.getName()==name) return true;
+
+    return false;
+}
+
+QList<QStringList> Center::getStaffInfo()
+{
+    QList<QStringList> list;
+    QStringList info;
+
+    if(staff.length())
+    {
+        info<<m_id<<m_leader<<staff[0].getHigherOffice()<<m_leader;
+    } else
+    {
+        info<<m_id<<m_leader<<""<<m_leader;
+    }
+
+    list.push_back(info);
+
+    for(Staff st:staff)
+    {
+        info.clear();
+        info<<st.getID()<<st.getName()<<st.getHigherOffice()<<m_leader;
+
+        list.push_back(info);
+    }
+
+    return list;
+}
+
+QList<QStringList> Center::getStaffInfo(QString name)
+{
+    QList<QStringList> list;
+
+    for(Branch br:subordinate)
+    {
+        if(br.getName()==name)
+            return br.getStaffInfo();
+    }
+
+    return list;
 }

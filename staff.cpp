@@ -5,13 +5,42 @@ Staff::Staff()
 
 }
 
-QString Staff::getMaxID()
+void Staff::setID(QString id)
 {
-    QString max = "0";
-    foreach(QString id,subordinate.keys())
-    {
-        if(id.toInt()>max.toInt()) max = id;
-    }
+    m_id=id;
+}
 
-    return max;
+QString Staff::getID()
+{
+    return m_id;
+}
+
+void Staff::setName(QString name)
+{
+    m_name=name;
+}
+
+QString Staff::getName()
+{
+    return m_name;
+}
+
+void Staff::setDepartment(QString de)
+{
+    m_department=de;
+}
+
+QString Staff::getDepartment()
+{
+    return m_department;
+}
+
+void Staff::setHigherOffice(QString ho)
+{
+    m_higherOffice=ho;
+}
+
+QString Staff::getHigherOffice()
+{
+    return m_higherOffice;
 }

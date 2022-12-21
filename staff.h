@@ -2,17 +2,29 @@
 #define STAFF_H
 
 #include <QString>
-#include <QMap>
-#include <QDomElement>
 
 class Staff
 {
 public:
     Staff();
 
-    QMap<QString,QString>subordinate;
+    void setID(QString id);
+    QString getID();
 
-    QString getMaxID();
+    void setName(QString name);
+    QString getName();
+
+    void setDepartment(QString de);
+    QString getDepartment();
+
+    void setHigherOffice(QString ho);
+    QString getHigherOffice();
+
+private:
+    QString m_id;
+    QString m_name;
+    QString m_department;
+    QString m_higherOffice;
 };
 
 #endif // STAFF_H

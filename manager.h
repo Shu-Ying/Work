@@ -5,6 +5,7 @@
 #include <QDomDocument>
 
 #include "center.h"
+
 class Manager
 {
 public:
@@ -31,7 +32,13 @@ public:
     int getLength();
     int getCenterLength(int num);
 
+    /**
+     * @brief getMaxID 获取最大ID
+     * @return
+     */
     int getMaxID();
+
+    QList<QStringList> getStaffInfo(QString name);
 private:
     QString m_name;
     QString m_id;
